@@ -207,8 +207,8 @@ STP -> RSTP -> MSTP
 В STP роли портов: root, designated, alternate
 
 В RSTP добавили еще 2:
-- **Alternate Port:** Резервный путь к корню (замена Blocking из STP). Мгновенно переходит в Forwarding, если текущий Root Port упал.
-- **Backup Port:** Резервный путь от того же коммутатора к тому же сегменту (редкий случай, при хабе или петле на одном коммутаторе).
+- **Alternate Port:** Резервный путь к корню. Если основной root port выйдет из строя, то alternate мгновенно перейдет в состояние forwarding и станет новым root port.
+- **Backup Port:** Резервный путь в тот же сегмент сети. Для него резервируется роль designated port.
 
 Proposal/Agreement - соглашение между роутерами, которое позволяет перейти очень быстро к этапу forwarding.
 1. Switch A отправляет switch B сообщение: "Я хочу быть Designated. Согласен?", отправляет BPDU-кадр с пометкой proposal.
